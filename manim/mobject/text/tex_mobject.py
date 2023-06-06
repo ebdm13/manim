@@ -365,9 +365,9 @@ class MathTex(SingleStringMathTex):
                 tex1 = tex1.lower()
                 tex2 = tex2.lower()
             if substring:
-                return tex1 in tex2
+                return tex1 in tex2 and "\\" not in tex2
             else:
-                return tex1 == tex2
+                return tex1 == tex2 and "\\" not in tex2
 
         return VGroup(*(m for m in self.submobjects if test(tex, m.get_tex_string())))
 
